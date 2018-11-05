@@ -3,26 +3,22 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.Arrays;
 
-public class Grid extends JFrame implements ActionListener {
+public class Grid2 extends JPanel implements ActionListener {
     private int rows;
     private int columns;
     private JButton[][] buttons; // Create 2D array of buttons
     private int[] size = new int[2];  
-    public Container pane = getContentPane();
+    public JPanel pane = new JPanel();
 
-    public Grid(int inputRows, int inputColumns) {
+    public Grid2(int inputRows, int inputColumns) {
         rows = inputRows;
         columns = inputColumns;
         buttons = new JButton[rows][columns];
         size[0] = columns;  //x
         size[1] = rows;     //y
     }
-    
-    void setFrameTitle(String title) {
-        this.setTitle(title);
-    }
 
-    void createGrid() {
+    JPanel createGrid() {
         pane.setBackground(Color.WHITE);
         pane.setLayout(new GridLayout(rows, columns));
 
@@ -41,6 +37,8 @@ public class Grid extends JFrame implements ActionListener {
                 pane.add(buttons[y][x]);
             }
         }
+
+        return pane;
     }
 
     int[] getGridSize() {
