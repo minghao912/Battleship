@@ -30,19 +30,16 @@ public class Grid2 extends JPanel implements ActionListener {
                 buttonID = ++buttonCount + "";
 
                 buttons[y][x] = new JButton();
-                buttons[y][x].setPreferredSize(new Dimension(100, 100));
+                buttons[y][x].setPreferredSize(new Dimension(90, 90));
                 buttons[y][x].setName(buttonID);
                 buttons[y][x].addActionListener(this);
                 buttons[y][x].setActionCommand(x + ", " + y);
+
                 pane.add(buttons[y][x]);
             }
         }
 
         return pane;
-    }
-
-    int[] getGridSize() {
-        return size;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -52,13 +49,29 @@ public class Grid2 extends JPanel implements ActionListener {
         int x = Integer.parseInt(xy[0]);
         int y = Integer.parseInt(xy[1]);
 
-        if (buttons[y][x].getName().contains(" &")) {}
+        if (buttons[y][x].getName().contains(" &")) return;
         else {
-            //Actions
-            buttons[y][x].setBackground(Color.red);
-            buttons[y][x].setName(buttons[y][x].getName() + " &");
-            new PlaySound().play("Files/Sounds/Explosion2.wav");
-            System.out.println("User called a hit on (" + x + ", " + y + ")");
+            ++Computer.moveCounter; //Increase user move count
+            buttons[y][x].setName(buttons[y][x].getName() + " &");  //Mark button as already clicked
+            InitGame.userGuess(new int[] {y, x});   //Pass the guess to the main game
+
+            System.out.println();
+            System.out.println("> User called a hit on (" + x + ", " + y + ")");
+            System.out.println("> User move count: " + Computer.moveCounter);
         }
     }
+    
+    int[] getGridSize() {
+        return size;
+    }
+
+    void changeButtonColour(int[] coordinates, Color colour) {
+        buttons[coordinates[0]][coordinates[1]].setBackground(colour);
+        buttons[coordinates[0]][coordinates[1]].setContentAreaFilled(false);
+        buttons[coordinates[0]][coordinates[1]].setOpaque(true);
+    }
+
+    
 }
+
+// 14/11/2018 16:58
