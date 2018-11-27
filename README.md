@@ -15,11 +15,22 @@
 - [x] Check when a ship has been sunk and update counter
   - [x] Check which ship has been sunk
   - [x] Update 'Ships Sunk' counter
-- [ ] Have a system to calculate user score
-- [ ] Make a leaderboard w/ scores
+- [x] Have a system to calculate user score
+- [x] Make a leaderboard w/ scores
   - [x] Leaderboard file
   - [x] System to read the file
-  - [ ] Display the leaderboard
-  - [ ] Update accordingly
+  - [x] Display the leaderboard
+  - [x] Update accordingly
 
-*Last update 14/11/2018 16:57*
+# Optional Stuff
+
+- [x] Use '.kylebigdumb' files
+- [x] Use different formats to display the different scorees in the leaderboard
+- [ ] Use a kool font
+- [ ] Title page
+  - [ ] Start game
+  - [ ] View leaderboard
+- [ ] 'Play Again?' option
+- [ ] Soundtrack
+
+*Last update 26/11/2018*
